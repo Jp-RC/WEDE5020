@@ -648,3 +648,14 @@ p{
         transform: translateY(0);
     }
 }
+/*LettersAndNews Search engine*/
+#activitySearch,
+#activitySort {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid aqua;
+    font-family: 'Times New Roman', Times, serif;
+    max-width: 100%;
+    box-sizing: border-box;
+}

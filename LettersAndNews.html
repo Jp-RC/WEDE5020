@@ -6,6 +6,7 @@
         <title>
             JpMalouwSupportWetnose<!--The website name-->
         </title>
+        <meta name="description" content="wetnose provides news and upcoming event">
         <link rel="stylesheet" href="css/style.css">
         <script src="js/website.js" defer></script>
     </head>
@@ -40,10 +41,20 @@
                         <img src="images/News-high.jpg" alt="hamster with a letter">
                     </picture>
                     </div>
-                    <div class="NLE" id="events-content">
+                    <div class="NLE">
                         <h3>Events:</h3>
-                        <p>....</p>
-                </div>
+                        <!--Search-->
+                        <input
+                        type="text"
+                        id="activitySearch"
+                        placeholder="Search activities...."
+                        >
+                        <select id="activitySort">
+                        <option value="az">Sort A-Z</option>
+                        <option value="za">Sort Z-A</option>
+                        </select>
+                        <div id="activityResults"></div>
+                    </div>
             </section>
         </main>
     <Footer>

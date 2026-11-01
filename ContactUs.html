@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>
-            JpMalouwSupportWetnose<!--The website name-->
-        </title>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-        <link rel="stylesheet" href="css/style.css">
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-        <script src="js/website.js" defer></script>
-    </head>
-    <body>
-            <header>
-                <img src="images/logo.png"width="100"><!--Logo of the website-->
-                    </section>
-                    <section id="Org">
-                        <div id="O">
-                            <h1><!--Main Heading of the organisation-->
-                                WETNOSE ANIMAL RESCUE CENTRE
-                            </h1>
-                        </div>
-                    </section>
-                               <section>
-                        <div class="kpi">
-                            <div class="header-stats">
-                                <h4 id="visitor-count">1,000+</h4>
-                                    <p>Website Visitors</p>
-                            </div>
-                        </div>
-            </header>
-        <main class="Que">
-            <h2><u>Contact Us</u></h2>
-            <section class="Q-order">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        JpMalouwSupportWetnose<!--The website name-->
+    </title>
+    <meta name="description" content="Contact WetNose Animal Rescue Centre, with location and interactive Map">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/website.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <img src="images/logo.png" width="100"><!--Logo of the website-->
+        </section>
+        <section id="Org">
+            <div id="O">
+                <h1><!--Main Heading of the organisation-->
+                    WETNOSE ANIMAL RESCUE CENTRE
+                </h1>
+            </div>
+        </section>
+        <section>
+            <div class="kpi">
+                <div class="header-stats">
+                    <h4 id="visitor-count">1,000+</h4>
+                    <p>Website Visitors</p>
+                </div>
+            </div>
+    </header>
+    <main class="Que">
+        <h2><u>Contact Us</u></h2>
+        <section class="Q-order">
             <section id="Query">
                 <div id="Q">
-                <picture class="owl">
-                  <source media="(max-width:600px)" srcset="images/Query-low.jpg">
-                  <source media="(max-width:900px)" srcset="images/Query-medium.jpg">
-                  <img src="images/Query-high.jpg" alt="curious owl">
-                </picture>
+                    <picture class="owl">
+                        <source media="(max-width:600px)" srcset="images/Query-low.jpg">
+                        <source media="(max-width:900px)" srcset="images/Query-medium.jpg">
+                        <img src="images/Query-high.jpg" alt="curious owl">
+                    </picture>
                     <h3>
                         <u>Our Contact Details:</u><!--Contact details and address of the organisation-->
                     </h3>
                     <ul>
-                    <li><img src="images/Query2.jpg" width="30"> Plot 75 R104, Vaalbank-B, Bronkhorstspruit, 1055, South Africa</li>
-                    <li><img src="images/Query3.webp" width="30"> admin@wetnose.co.za</li>
-                    <li><img src="images/Query4.png" width="30"> 082 677 8084</li>
+                        <li><img src="images/Query2.jpg" width="30"> Plot 75 R104, Vaalbank-B, Bronkhorstspruit, 1055,
+                            South Africa</li>
+                        <li><img src="images/Query3.webp" width="30"> admin@wetnose.co.za</li>
+                        <li><img src="images/Query4.png" width="30"> 082 677 8084</li>
                     </ul>
                 </div>
                 <div id="rescue-map"></div>
             </section>
-            <section id="QueryForm"><!--this is the query form, where the visitor can ask questions by filling in the form-->
+            <section id="QueryForm">
+                <!--this is the query form, where the visitor can ask questions by filling in the form-->
                 <div id="QForm">
                     <form action="/submit-question" method="post">
                         <h4>Ask a Question</h4>
@@ -74,14 +79,15 @@
                         </div>
                         <div>
                             <label for="user-question">Your Question</label><br>
-                            <textarea id="user-question" name="question" rows="8" placeholder="Type your question" required></textarea>
+                            <textarea id="user-question" name="question" rows="8" placeholder="Type your question"
+                                required></textarea>
                         </div>
                         <button type="submit">Submit</button>
                     </form>
                 </div>
             </section>
-            </section>
-        </main>
+        </section>
+    </main>
     <Footer>
         <section id="Nav"><!--Navigation section of 5 webpages-->
             <div id="N">
@@ -99,52 +105,50 @@
         </p>
         <div class="footer-tabs">
             <div class="tab-buttons">
-                <button class="tab-button active"
-                    onclick="openFooterTab(event, 'contact-info')">
+                <button class="tab-button active" onclick="openFooterTab(event, 'contact-info')">
                     Contact Information
                 </button>
-                <button class="tab-button"
-                onclick="openFooterTab(event,'social-info')">
-                Social Media
-            </button>
+                <button class="tab-button" onclick="openFooterTab(event,'social-info')">
+                    Social Media
+                </button>
             </div>
-                <div id="contact-info" class="tab-content active">
-        <h4>
-            Find Us:
-        </h4>
-        <a
-            href="https://www.google.com/maps/place/Wetnose+Animal+Rescue+Centre/@-25.9853062,27.93935,9z/data=!4m6!3m5!1s0x1e955bd5593a2907:0xee260671719ec421!8m2!3d-25.792573!4d28.576557!16s%2Fg%2F11b5ytl4tw?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D">
-Plot 75 R104, Vaalbank-B, Bronkhorstspruit, 1055, South Africa
-        </a>
-        <p>
-            Telephone: 082 677 8084
-        </p>
-        <p>
-            Email: admin@wetnose.co.za
-        </p>
-    </div>
-    <div id="social-info" class="tab-content">
-        <p><!--the organisation's social media profiles-->
-            <!--With the social media link provided, this also allow the user to go to a different tab than working on one tab-->
-            For more <strong>Info</strong>:
-        </p>
-        <a
-            href="https://www.facebook.com/WetNoseARC" target="_blank" rel="noopener noreferrer">Visit our facebook page<br>
-        </a>
-        <a
-            href="https://x.com/WetNoseARC" target="_blank" rel="noopener noreferrer">Visit our X.com page<br>
-        </a>
-        <a
-            href="https://www.youtube.com/@wetnoseanimalrescue7235" target="_blank" rel="noopener noreferrer">Visit our Youtube page<br>
-        </a>
-        <a
-            href="https://www.instagram.com/wetnose_animal_rescue_center/" target="_blank" rel="noopener noreferrer">Visit our Instagram page<br>
-        </a>
-        <a
-            href="https://www.tiktok.com/@wetnoseanimalrescue" target="_blank" rel="noopener noreferrer">Visit our TikTok page
-        </a>
-    </div>
-    </div>
+            <div id="contact-info" class="tab-content active">
+                <h4>
+                    Find Us:
+                </h4>
+                <a
+                    href="https://www.google.com/maps/place/Wetnose+Animal+Rescue+Centre/@-25.9853062,27.93935,9z/data=!4m6!3m5!1s0x1e955bd5593a2907:0xee260671719ec421!8m2!3d-25.792573!4d28.576557!16s%2Fg%2F11b5ytl4tw?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D">
+                    Plot 75 R104, Vaalbank-B, Bronkhorstspruit, 1055, South Africa
+                </a>
+                <p>
+                    Telephone: 082 677 8084
+                </p>
+                <p>
+                    Email: admin@wetnose.co.za
+                </p>
+            </div>
+            <div id="social-info" class="tab-content">
+                <p><!--the organisation's social media profiles-->
+                    <!--With the social media link provided, this also allow the user to go to a different tab than working on one tab-->
+                    For more <strong>Info</strong>:
+                </p>
+                <a href="https://www.facebook.com/WetNoseARC" target="_blank" rel="noopener noreferrer">Visit our
+                    facebook page<br>
+                </a>
+                <a href="https://x.com/WetNoseARC" target="_blank" rel="noopener noreferrer">Visit our X.com page<br>
+                </a>
+                <a href="https://www.youtube.com/@wetnoseanimalrescue7235" target="_blank"
+                    rel="noopener noreferrer">Visit our Youtube page<br>
+                </a>
+                <a href="https://www.instagram.com/wetnose_animal_rescue_center/" target="_blank"
+                    rel="noopener noreferrer">Visit our Instagram page<br>
+                </a>
+                <a href="https://www.tiktok.com/@wetnoseanimalrescue" target="_blank" rel="noopener noreferrer">Visit
+                    our TikTok page
+                </a>
+            </div>
+        </div>
     </Footer>
-    </body>
+</body>
+
 </html>

@@ -165,37 +165,61 @@ const revealElements = document.querySelectorAll("img").forEach(function (image)
     });
 });
 //dynamically load content on Letters and News
-const eventsContent = document.getElementById("events-content");
+const eventsContent = document.getElementById("activityResults");
 
-if (eventsContent) {
+if (eventsContent){
     fetch("./documents/post.json")
-    .then(response => {
-        if(!response.ok) {
-            throw new Error("Could not load posts.json");    
-        }
-        return response.json();
-    })
-    .then(data => {
-        const description = document.createElement("p");
-        description.textContent = data.title;
+        .then(response =>{
+            if(!response.ok) {
+                throw new Error("Could not load post.json");
+            }
 
-        eventsContent.appendChild(description);
+            return response.json();
+        })
 
-        const activityList = document.createElement("ul");
+        .then(data => {
+            const description = document.createElement("p");
+            description.textContent = data.title;
 
-        data.description.forEach(activity => {
-            const listItem = document.createElement("li");
-            listItem.textContent = activity;
-            activityList.appendChild(listItem);
+            eventsContent.appendChild(description);
+
+            const activityList = document.createElement("ul");
+            eventsContent.appendChild(activityList);
+
+            const searchInput = document.getElementById("activitySearch");
+            const sortSelect = document.getElementById("activitySort");
+
+            function displayActivities(activities) {
+                activityList.innerHTML = "";
+                activities.forEach(activity => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = activity;
+                    activityList.appendChild(listItem);
+                });
+            }
+            function filterAndSortActivities() {
+                const searchText = searchInput.value.toLowerCase();
+
+                let filteredActivities = data.description.filter(activity => activity.toLowerCase().includes(searchText)
+            );
+            if (sortSelect.value === "az") {
+                filteredActivities.sort();
+            }else {
+                filteredActivities.sort().reverse();
+            }
+            displayActivities(filteredActivities);
+            }
+            searchInput.addEventListener("input", filterAndSortActivities)
+            sortSelect.addEventListener("change", filterAndSortActivities)
+
+            filterAndSortActivities();
+        })
+        .catch(error =>{
+            console.error("Error loading events:", error);
+
+            eventsContent.innerHTML =
+                "<p>Sorry, activities could not be loaded.</p>";
         });
-        eventsContent.appendChild(activityList);
-
-    })
-    .catch(error => {
-        console.error("Error loading events:", error);
-        eventsContent.innerHTML = 
-        "<h3>Events:</h3><p>Sorry, activities could not be loaded.</p>";
-    });
 }
 //buttons feature in footer for user to switch between contact us and social medias
 function openFooterTab(event, tabName) {
