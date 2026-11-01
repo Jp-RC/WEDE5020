@@ -164,3 +164,54 @@ const revealElements = document.querySelectorAll("img").forEach(function (image)
         document.addEventListener("keydown", closeLightbox);
     });
 });
+//dynamically load content on Letters and News
+const eventsContent = document.getElementById("events-content");
+
+if (eventsContent) {
+    fetch("./documents/post.json")
+    .then(response => {
+        if(!response.ok) {
+            throw new Error("Could not load posts.json");    
+        }
+        return response.json();
+    })
+    .then(data => {
+        const description = document.createElement("p");
+        description.textContent = data.title;
+
+        eventsContent.appendChild(description);
+
+        const activityList = document.createElement("ul");
+
+        data.description.forEach(activity => {
+            const listItem = document.createElement("li");
+            listItem.textContent = activity;
+            activityList.appendChild(listItem);
+        });
+        eventsContent.appendChild(activityList);
+
+    })
+    .catch(error => {
+        console.error("Error loading events:", error);
+        eventsContent.innerHTML = 
+        "<h3>Events:</h3><p>Sorry, activities could not be loaded.</p>";
+    });
+}
+//buttons feature in footer for user to switch between contact us and social medias
+function openFooterTab(event, tabName) {
+
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabContents.forEach(tab=> {
+        tab.classList.remove("active");
+    })
+
+    const tabButtons = document.querySelectorAll(".tab-button");
+
+    tabButtons.forEach(button => {
+        button.classList.remove("active");
+    });
+    document.getElementById(tabName).classList.add("active");
+
+    event.currentTarget.classList.add("active");
+}

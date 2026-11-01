@@ -154,6 +154,7 @@ p{
     font-weight: bold;
     text-decoration: underline;
 }
+
 /* footer(nav) for tablet and mobile */
 @media (max-width: 900px) {
     #N nav {
@@ -179,6 +180,42 @@ p{
     #Nav {
         padding-bottom: 10px;
     }
+}
+.footer-tabs{
+    margin: 10px auto;
+}
+.tab-buttons{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.tab-button {
+    padding: 8px 12px;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+.tab-button:hover {
+    background-color: white;
+    color: black;
+}
+.tab-button.active{
+    background-color: aqua;
+    color: black;
+}
+.tab-content{
+    display: none;
+    padding: 10px;
+}
+.tab-content.active{
+    display: block;
+}
+.tab-content a {
+    margin: 5px;
 }
 /* index page */
 #Main{
