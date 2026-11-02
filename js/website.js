@@ -134,7 +134,8 @@ const revealElements = document.querySelectorAll("img").forEach(function (image)
         lightbox.style.backgroundColor = "rgba(0,0,0,0.85)";
         lightbox.style.display = "flex";
         lightbox.style.justifyContent = "center";
-        lightbox.style.alignItems = "9999";
+        lightbox.style.alignItems = "center";
+        lightbox.style.zIndex = "9999";
         lightbox.style.cursor = "pointer";
 
         const enlargedImage = document.createElement("img");
@@ -149,19 +150,26 @@ const revealElements = document.querySelectorAll("img").forEach(function (image)
         lightbox.appendChild(enlargedImage);
         document.body.appendChild(lightbox);
 
-        //closes when back ground is clicked
+        document.body.style.overflow  = "hidden";
+
+        function closeLightbox() {
+            lightbox.remove();
+            document.body.style.overflow = "";
+            document.removeEventListener("keyboard", escapeKey);
+        }
+
+        //closes when background or escape key is pressed is clicked
         lightbox.addEventListener("click", function (event) {
             if (event.target === lightbox) {
-                lightbox.remove();
+                closeLightbox();
             }
         });
-        function closeLightbox (event) {
+        function escapeKey(event) {
             if (event.key === "Escape") {
-                lightbox.remove();
-                document.removeEventListener("keydown", closeLightbox)
+                closeLightbox();
             }
         }
-        document.addEventListener("keydown", closeLightbox);
+        document.addEventListener("keydown", escapeKey);
     });
 });
 //dynamically load content on Letters and News
