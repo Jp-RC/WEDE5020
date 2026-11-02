@@ -239,3 +239,98 @@ function openFooterTab(event, tabName) {
 
     event.currentTarget.classList.add("active");
 }
+//Form
+const questionForm = document.getElementById("question-form");
+
+if(questionForm) {
+    const nameInput = document.getElementById("user-name");
+    const emailInput = document.getElementById("user-email");
+    const subjectInput = document.getElementById("subject");
+    const questionInput = document.getElementById("user-question");
+    const submitButton = document.getElementById("submit-button");
+
+    function validateName() {
+        const name = nameInput.value.trim();
+        const error = document.getElementById("name-error");
+
+        if (name.length < 2) {
+            error.textContent = "Name must contain at least 2 charaters.";
+            return false;
+        } else if (name.length > 50){
+            error.textContent = "Name cannot exceed 50 charaters.";
+            return false;
+        }
+
+        error.textContent = "";
+        return true;
+    }
+    function validateEmail() {
+        const error = document.getElementById("email-error");
+
+        if(!emailInput.validity.valid || emailInput.value.trim()==="") {
+            error.textContent = "Please enter a valid email address.";
+            return false;
+        }
+        error.textContent = "";
+        return true;
+    }
+    function validateSubject () {
+        const error = document.getElementById("subject-error");
+
+        if (subjectInput.value === "") {
+            error.textContent = "Please select an enquiry type.";
+            return false;
+        }
+        error.textContent ="";
+        return true;
+    }
+    function validateQuestion() {
+        const question = questionInput.value.trim();
+        const error = document.getElementById("question-error");
+
+        if(question.length < 10) {
+            error.textContent = "Your question must contain at least 10 characters.";
+            return false;
+        }else if (question.length > 1000) {
+            error.textContent = "Your question cannot exceed 1000 characters.";
+            return false;
+        }
+        error.textContent = "";
+        return true;
+    }
+    function checkForm() {
+    const nameValid = validateName();
+    const emailValid = validateEmail();
+    const subjectValid = validateSubject();
+    const questionValid = validateQuestion();
+
+    const isValid =
+        nameValid &&
+        emailValid &&
+        subjectValid &&
+        questionValid;
+
+    submitButton.disabled = !isValid;
+    }
+
+    nameInput.addEventListener("input", checkForm);
+    emailInput.addEventListener("input", checkForm);
+    subjectInput.addEventListener("change", checkForm);
+    questionInput.addEventListener("input", checkForm);
+
+    questionForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        checkForm();
+
+        if (!submitButton.disabled) {
+            alert("Your submission has been sent successfully!");
+
+            questionForm.reset();
+
+            document.getElementById("form-message").textContent = "";
+
+            checkForm();
+        }
+    });
+}

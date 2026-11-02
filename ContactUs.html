@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        JpMalouwSupportWetnose<!--The website name-->
+        JpSupportWetnose<!--The website name-->
     </title>
     <meta name="description" content="Contact WetNose Animal Rescue Centre, with location and interactive Map">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -58,31 +58,39 @@
             <section id="QueryForm">
                 <!--this is the query form, where the visitor can ask questions by filling in the form-->
                 <div id="QForm">
-                    <form action="/submit-question" method="post">
+                    <form id="question-form">
                         <h4>Ask a Question</h4>
 
                         <div>
                             <label for="user-name">Your name:</label><br>
-                            <input type="text" id="user-name" name="name" placeholder="e.g. Jp Malouw" required>
+                            <input type="text" id="user-name" name="name" 
+                            placeholder="e.g. Jman(max 50 characters)"
+                            minlength="2" maxlength="50" required>
+                            <small id="name-error" class="error-message"></small>
                         </div>
                         <div>
                             <label for="user-email">Your email:</label><br>
                             <input type="email" id="user-email" name="email" placeholder="You@example.com" required>
+                            <small id="email-error" class="error-message"></small>
                         </div>
                         <div>
                             <label for="subject">Inquiry Reason:</label>
-                            <select id="subject" name="enquiry_type">
+                            <select id="subject" name="enquiry_type" required>
+                                <option value="" disabled selected>Select an enquiry type</option>
                                 <option value="general">General</option>
                                 <option value="volunteer">Volunteer</option>
                                 <option value="Sponsor">Sponsor</option>
                             </select>
+                            <small id="subject-error" class="error-message"></small>
                         </div>
                         <div>
                             <label for="user-question">Your Question</label><br>
-                            <textarea id="user-question" name="question" rows="8" placeholder="Type your question"
-                                required></textarea>
+                            <textarea id="user-question" name="question" rows="8" minlength="10" maxlength="1000"
+                            placeholder="Type your question(max 1000 characters)" required></textarea>
+                            <small id="question-error" class="error-message"></small>
                         </div>
-                        <button type="submit">Submit</button>
+                        <p id="form-message" role="status" aria-live="polite"></p>
+                        <button type="submit" id="submit-button" disabled>Submit</button>
                     </form>
                 </div>
             </section>
